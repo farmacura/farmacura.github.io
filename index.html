@@ -133,6 +133,17 @@
       margin-left: 4px;
     }
 
+    .hero-image {
+      display: block;
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+      margin: 18px auto 4px auto;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
     .section-title {
       font-size: 1.05rem;
       font-weight: 600;
@@ -146,7 +157,6 @@
       margin-bottom: 10px;
     }
 
-    /* BOTÕES VERDES DAS SOLICITAÇÕES (MESMO ESTILO DO BOTÃO WHATSAPP) */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -288,7 +298,6 @@
     <main>
       <div class="container">
 
-        <!-- AVISO PRINCIPAL -->
         <div class="card">
           <h2>Portal do Cliente 🟢</h2>
           <p>
@@ -296,17 +305,24 @@
             Na área do cliente, você tem acesso a todas as funcionalidades da sua conta, como 2 via de boleto, antecipação de parcelas, entre outras.
           </p>
 
+          <!-- IMAGEM DO VOLKSWAGEN T-CROSS 2025 -->
+          <img 
+            src="https://cdn.motor1.com/images/mgl/4e3Yk/s1/volkswagen-t-cross-2025.jpg" 
+            alt="Volkswagen T-Cross 2025" 
+            class="hero-image" 
+          />
+
           <div class="highlight">
             <div class="whatsapp-box">
               <strong>Atendimento via WhatsApp</strong>
               <span>Serviço rápido, prático e seguro das 8h às 20h</span>
-              <span class="whatsapp-number">(11) 96943-8748</span>
+              <span class="whatsapp-number">(11) 92147-4407</span>
               <span class="small-note">Adicione aos seus contatos</span>
             </div>
 
             <a
               class="btn-whatsapp"
-              href="https://wa.me/5511969438748?text=Solicitar%20atendimento."
+              href="https://wa.me/5511921474407?text=Solicitar%20atendimento."
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -315,7 +331,6 @@
           </div>
         </div>
 
-        <!-- SOLICITAÇÕES DISPONÍVEIS -->
         <div class="card">
           <div class="section-title">Solicitações Disponíveis</div>
           <div class="section-subtitle">
@@ -323,22 +338,21 @@
           </div>
 
           <div class="services-grid">
-            <a class="service-btn" href="https://wa.me/5511969438748?text=Solicitar%20atendimento.">
+            <a class="service-btn" href="https://wa.me/5511921474407?text=Solicitar%20atendimento.">
               2ª via de boletos
             </a>
-            <a class="service-btn" href="https://wa.me/5511969438748?text=Solicitar%20atendimento.">
+            <a class="service-btn" href="https://wa.me/5511921474407?text=Solicitar%20atendimento.">
               Quitar financiamento
             </a>
-            <a class="service-btn" href="https://wa.me/5511969438748?text=Solicitar%20atendimento.">
+            <a class="service-btn" href="https://wa.me/5511921474407?text=Solicitar%20atendimento.">
               Antecipar parcelas
             </a>
-            <a class="service-btn" href="https://wa.me/5511969438748?text=Solicitar%20atendimento.">
+            <a class="service-btn" href="https://wa.me/5511921474407?text=Solicitar%20atendimento.">
               Regularizar parcelas em atraso
             </a>
           </div>
         </div>
 
-        <!-- COMO SOLICITAR -->
         <div class="card">
           <div class="section-title">Como solicitar pelo WhatsApp?</div>
 
@@ -346,7 +360,7 @@
             <ol>
               <li>
                 <strong>Adicione nosso número</strong><br />
-                Adicione o número (11) 96943-8748 aos seus contatos e envie uma mensagem,
+                Adicione o número (11) 92147-4407 aos seus contatos e envie uma mensagem,
                 ou clique no botão acima.
               </li>
               <li>
@@ -367,7 +381,6 @@
           </div>
         </div>
 
-        <!-- BENEFÍCIOS -->
         <div class="card">
           <div class="section-title">Por que usar nosso WhatsApp?</div>
 
@@ -387,7 +400,6 @@
           </div>
         </div>
 
-        <!-- RODAPÉ DE LINKS / AVISO LEGAL -->
         <div class="card">
           <div class="footer-links">
             <a href="#">Portal do Cliente</a>
@@ -398,10 +410,7 @@
             <span>•</span>
             <a href="#">Sobre Nós</a>
           </div>
-
-          <p class="disclaimer">
-            
-          </p>
+          <p class="disclaimer"></p>
         </div>
 
       </div>
