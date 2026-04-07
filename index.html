@@ -1,255 +1,415 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Portal do Cliente</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<title>Drogaria Farmacura LTDA | Informações Institucionais</title>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f3f4f6;
+      color: #111827;
+      line-height: 1.6;
+    }
 
-<style>
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-body{
-font-family: Arial, Helvetica, sans-serif;
-margin:0;
-background:#f5f5f5;
-color:#333;
-}
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-header{
-background:#0a7d44;
-color:white;
-padding:25px;
-text-align:center;
-}
+    header {
+      padding: 20px 16px;
+      background: #111827;
+      color: #f9fafb;
+    }
 
-nav{
-background:#055c31;
-padding:12px;
-text-align:center;
-}
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
 
-nav a{
-color:white;
-margin:0 15px;
-text-decoration:none;
-font-weight:bold;
-}
+    .header-inner h1 {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
 
-.container{
-max-width:1100px;
-margin:auto;
-background:white;
-padding:40px;
-}
+    main {
+      flex: 1;
+      padding: 32px 16px 40px;
+    }
 
-h2{
-color:#0a7d44;
-margin-top:40px;
-}
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
 
-footer{
-background:#222;
-color:white;
-padding:30px;
-text-align:center;
-margin-top:40px;
-}
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 24px 20px;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+      border: 1px solid #e5e7eb;
+      margin-bottom: 24px;
+    }
 
-.box{
-background:#f7f7f7;
-padding:20px;
-border-radius:6px;
-margin-top:15px;
-}
+    .card h2 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #111827;
+    }
 
-</style>
+    .card p {
+      font-size: 0.95rem;
+      color: #4b5563;
+      margin-bottom: 10px;
+    }
+
+    .highlight {
+      background: #eff6ff;
+      border-radius: 10px;
+      border: 1px solid #bfdbfe;
+      padding: 12px 14px;
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+
+    .whatsapp-box {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+      font-size: 0.95rem;
+    }
+
+    .whatsapp-number {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #16a34a;
+    }
+
+    .small-note {
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    .btn-whatsapp {
+      margin-top: 14px;
+      display: inline-block;
+      background: #22c55e;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 999px;
+      padding: 12px 26px;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(22, 163, 74, 0.35);
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+    }
+
+    .btn-whatsapp:hover {
+      background: #16a34a;
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(22, 163, 74, 0.4);
+    }
+
+    .btn-whatsapp span {
+      margin-left: 4px;
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #111827;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-bottom: 10px;
+    }
+
+    /* BOTÕES VERDES DAS SOLICITAÇÕES (MESMO ESTILO DO BOTÃO WHATSAPP) */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .service-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 48px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: #22c55e;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1px solid #16a34a;
+      box-shadow: 0 8px 18px rgba(22, 163, 74, 0.25);
+      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+    }
+
+    .service-btn:hover {
+      background: #16a34a;
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px rgba(22, 163, 74, 0.35);
+    }
+
+    .steps {
+      margin-top: 8px;
+      font-size: 0.92rem;
+      color: #4b5563;
+    }
+
+    .steps ol {
+      margin-left: 18px;
+      margin-top: 8px;
+    }
+
+    .steps li {
+      margin-bottom: 8px;
+    }
+
+    .steps ul {
+      margin-left: 22px;
+      margin-top: 4px;
+      list-style: disc;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .benefit {
+      background: #f9fafb;
+      border-radius: 10px;
+      padding: 12px 10px;
+      text-align: center;
+      border: 1px solid #e5e7eb;
+    }
+
+    .benefit h3 {
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .benefit p {
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin: 0;
+    }
+
+    .footer-links {
+      font-size: 0.84rem;
+      color: #6b7280;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .footer-links a {
+      color: #4b5563;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .disclaimer {
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin-top: 16px;
+      line-height: 1.5;
+    }
+
+    footer {
+      padding: 16px;
+      background: #111827;
+      color: #9ca3af;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        padding-top: 24px;
+      }
+
+      .card {
+        padding: 20px 16px;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-<header>
-
-<h1>DROGARIA FARMACURA LTDA</h1>
-
-<p>Informações Institucionais e Operacionais</p>
-
-</header>
-
-<nav>
-
-<a href="#empresa">Empresa</a>
-<a href="#operacoes">Operações Comerciais</a>
-<a href="#servicos">Produtos e Serviços</a>
-<a href="#privacidade">Privacidade</a>
-<a href="#contato">Contato</a>
-
-</nav>
-
-<div class="container">
-
-<section id="empresa">
-
-<h2>Sobre a Empresa</h2>
-
-<p>
-A <strong>Drogaria Farmacura LTDA</strong> é uma empresa brasileira do setor farmacêutico dedicada
-à comercialização de medicamentos, produtos de saúde e bem-estar.
-A organização atua seguindo as normas sanitárias e regulatórias aplicáveis
-ao comércio farmacêutico no Brasil.
-</p>
-
-<div class="box">
-
-<strong>Dados da Empresa</strong>
-
-<p>
-
-Nome da organização: Drogaria Farmacura LTDA<br>
-Endereço: Av. Rosália Iannini Conde, 324<br>
-Bairro: Parque América<br>
-Cidade: São Paulo – SP<br>
-CEP: 04841-150<br>
-País: Brasil<br>
-
-</p>
-
-</div>
-
-</section>
-
-
-<section id="operacoes">
-
-<h2>Operações Comerciais</h2>
-
-<p>
-
-A empresa realiza atividades de comercialização de produtos farmacêuticos
-e itens relacionados à saúde, incluindo medicamentos, produtos de higiene,
-cuidados pessoais e itens de bem-estar.
-
-</p>
-
-<p>
-
-As operações comerciais da empresa seguem processos estruturados
-de atendimento ao cliente, aquisição de produtos junto a distribuidores
-autorizados e venda direta ao consumidor final por meio de seus canais
-comerciais.
-
-</p>
-
-<p>
-
-A empresa também utiliza plataformas digitais para divulgação de
-informações institucionais e campanhas publicitárias relacionadas
-aos seus produtos e serviços.
-
-</p>
-
-</section>
-
-
-
-<section id="servicos">
-
-<h2>Produtos e Serviços</h2>
-
-<p>
-
-Entre os principais produtos e serviços oferecidos pela Drogaria Farmacura
-estão:
-
-</p>
-
-<ul>
-
-<li>Comercialização de medicamentos de venda livre e controlados</li>
-<li>Produtos de higiene e cuidados pessoais</li>
-<li>Suplementos e vitaminas</li>
-<li>Produtos de saúde e bem-estar</li>
-<li>Atendimento e orientação farmacêutica</li>
-
-</ul>
-
-<p>
-
-A empresa busca oferecer atendimento responsável e produtos
-de qualidade para atender às necessidades de saúde da população.
-
-</p>
-
-</section>
-
-
-<section id="privacidade">
-
-<h2>Privacidade e Proteção de Dados</h2>
-
-<p>
-
-A Drogaria Farmacura LTDA respeita a privacidade de seus clientes
-e segue boas práticas de proteção de dados.
-
-</p>
-
-<p>
-
-Informações pessoais fornecidas por clientes são utilizadas
-exclusivamente para fins de atendimento e prestação de serviços,
-sendo armazenadas em ambientes seguros.
-
-</p>
-
-<p>
-
-A empresa adota práticas alinhadas com a legislação brasileira
-de proteção de dados e mantém controles internos para garantir
-a segurança das informações.
-
-</p>
-
-</section>
-
-
-
-<section id="contato">
-
-<h2>Informações de Contato</h2>
-
-<div class="box">
-
-<p>
-
-<strong>DROGARIA FARMACURA LTDA</strong><br><br>
-
-Endereço:<br>
-Av. Rosália Iannini Conde, 324<br>
-Parque América<br>
-São Paulo – SP<br>
-04841-150<br>
-Brasil<br><br>
-
-Horário de atendimento comercial conforme funcionamento da loja.
-
-</p>
-
-</div>
-
-</section>
-
-</div>
-
-<footer>
-
-<p>
-
-© 2026 Drogaria Farmacura LTDA  
-Informações institucionais para transparência comercial.
-
-</p>
-
-</footer>
-
+  <div class="page">
+    <header>
+      <div class="header-inner">
+        <h1>Portal do Cliente</h1>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+
+        <!-- AVISO PRINCIPAL -->
+        <div class="card">
+          <h2>Portal do Cliente 🟢</h2>
+          <p>
+            Se você está procurando o mais completo acesso ao suporte online para resolver o que é necessário, você terá todo suporte aqui mesmo:
+            Na área do cliente, você tem acesso a todas as funcionalidades da sua conta, como 2 via de boleto, antecipação de parcelas, entre outras.
+          </p>
+
+          <div class="highlight">
+            <div class="whatsapp-box">
+              <strong>Atendimento via WhatsApp</strong>
+              <span>Serviço rápido, prático e seguro das 8h às 20h</span>
+              <span class="whatsapp-number">(11) 96943-8748</span>
+              <span class="small-note">Adicione aos seus contatos</span>
+            </div>
+
+            <a
+              class="btn-whatsapp"
+              href="https://wa.me/5511969438748?text=Solicitar%20atendimento."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              SOLICITAR VIA WHATSAPP<span>📲</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- SOLICITAÇÕES DISPONÍVEIS -->
+        <div class="card">
+          <div class="section-title">Solicitações Disponíveis</div>
+          <div class="section-subtitle">
+            Clique no serviço desejado para mais informações
+          </div>
+
+          <div class="services-grid">
+            <a class="service-btn" href="https://wa.me/5511969438748?text=Solicitar%20atendimento.">
+              2ª via de boletos
+            </a>
+            <a class="service-btn" href="https://wa.me/5511969438748?text=Solicitar%20atendimento.">
+              Quitar financiamento
+            </a>
+            <a class="service-btn" href="https://wa.me/5511969438748?text=Solicitar%20atendimento.">
+              Antecipar parcelas
+            </a>
+            <a class="service-btn" href="https://wa.me/5511969438748?text=Solicitar%20atendimento.">
+              Regularizar parcelas em atraso
+            </a>
+          </div>
+        </div>
+
+        <!-- COMO SOLICITAR -->
+        <div class="card">
+          <div class="section-title">Como solicitar pelo WhatsApp?</div>
+
+          <div class="steps">
+            <ol>
+              <li>
+                <strong>Adicione nosso número</strong><br />
+                Adicione o número (11) 96943-8748 aos seus contatos e envie uma mensagem,
+                ou clique no botão acima.
+              </li>
+              <li>
+                <strong>Selecione a opção desejada:</strong>
+                <ul>
+                  <li><strong>1</strong> para 2ª via de boleto</li>
+                  <li><strong>2</strong> para Antecipação de parcelas</li>
+                  <li><strong>3</strong> para Regularizar parcelas em atraso</li>
+                  <li><strong>4</strong> para Quitação de contrato</li>
+                  <li><strong>5</strong> para Segunda via do Contrato</li> 
+                </ul>
+              </li>
+              <li>
+                <strong>Finalize o processo</strong><br />
+                Confirme as informações do seu cadastro e siga as orientações de nosso atendimento.
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- BENEFÍCIOS -->
+        <div class="card">
+          <div class="section-title">Por que usar nosso WhatsApp?</div>
+
+          <div class="benefits-grid">
+            <div class="benefit">
+              <h3>Rapidez</h3>
+              <p>Acesso imediato às informações sem filas</p>
+            </div>
+            <div class="benefit">
+              <h3>Praticidade</h3>
+              <p>Apenas com seu celular e alguns cliques</p>
+            </div>
+            <div class="benefit">
+              <h3>Segurança</h3>
+              <p>Canal seguro e verificado</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- RODAPÉ DE LINKS / AVISO LEGAL -->
+        <div class="card">
+          <div class="footer-links">
+            <a href="#">Portal do Cliente</a>
+            <span>•</span>
+            <a href="#">Política de Privacidade</a>
+            <span>•</span>
+            <a href="#">Termos de Uso</a>
+            <span>•</span>
+            <a href="#">Sobre Nós</a>
+          </div>
+
+          <p class="disclaimer">
+            
+          </p>
+        </div>
+
+      </div>
+    </main>
+
+    <footer>
+      © 2026 Portal do Cliente. Todos os direitos reservados.
+    </footer>
+  </div>
 </body>
 </html>
