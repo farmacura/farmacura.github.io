@@ -1,424 +1,166 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <title>Portal do Cliente - Volkswagen</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drogaria Farmacura LTDA</title>
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f3f4f6;
-      color: #111827;
-      line-height: 1.6;
-    }
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f5f5f5;
+}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+header {
+    background: #198754;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
 
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+nav {
+    background: #146c43;
+    padding: 10px;
+    text-align: center;
+}
 
-    header {
-      padding: 20px 16px;
-      background: #111827;
-      color: #f9fafb;
-    }
+nav a {
+    color: white;
+    margin: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-    .header-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
+section {
+    background: white;
+    margin: 20px;
+    padding: 30px;
+    border-radius: 10px;
+}
 
-    .header-inner h1 {
-      font-size: 1.25rem;
-      font-weight: 600;
-    }
+h2 {
+    color: #198754;
+}
 
-    main {
-      flex: 1;
-      padding: 32px 16px 40px;
-    }
-
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-    }
-
-    .card {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 24px 20px;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
-      border: 1px solid #e5e7eb;
-      margin-bottom: 24px;
-    }
-
-    .card h2 {
-      font-size: 1.2rem;
-      margin-bottom: 8px;
-      font-weight: 600;
-      color: #111827;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      color: #4b5563;
-      margin-bottom: 10px;
-    }
-
-    .highlight {
-      background: #eff6ff;
-      border-radius: 10px;
-      border: 1px solid #bfdbfe;
-      padding: 12px 14px;
-      margin-top: 10px;
-      font-size: 0.9rem;
-    }
-
-    .whatsapp-box {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-top: 4px;
-      font-size: 0.95rem;
-    }
-
-    .whatsapp-number {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #16a34a;
-    }
-
-    .small-note {
-      font-size: 0.85rem;
-      color: #6b7280;
-    }
-
-    .btn-whatsapp {
-      margin-top: 14px;
-      display: inline-block;
-      background: #22c55e;
-      color: #ffffff;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border-radius: 999px;
-      padding: 12px 26px;
-      text-align: center;
-      box-shadow: 0 10px 20px rgba(22, 163, 74, 0.35);
-      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
-    }
-
-    .btn-whatsapp:hover {
-      background: #16a34a;
-      transform: translateY(-1px);
-      box-shadow: 0 14px 30px rgba(22, 163, 74, 0.4);
-    }
-
-    .btn-whatsapp span {
-      margin-left: 4px;
-    }
-
-    .hero-image {
-      display: block;
-      max-width: 100%;
-      width: 100%;
-      height: auto;
-      margin: 18px auto 4px auto;
-      border-radius: 12px;
-      object-fit: cover;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .section-title {
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin-bottom: 6px;
-      color: #111827;
-    }
-
-    .section-subtitle {
-      font-size: 0.9rem;
-      color: #6b7280;
-      margin-bottom: 10px;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .service-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      min-height: 48px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      background: #22c55e;
-      color: #ffffff;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: 1px solid #16a34a;
-      box-shadow: 0 8px 18px rgba(22, 163, 74, 0.25);
-      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
-    }
-
-    .service-btn:hover {
-      background: #16a34a;
-      transform: translateY(-1px);
-      box-shadow: 0 12px 24px rgba(22, 163, 74, 0.35);
-    }
-
-    .steps {
-      margin-top: 8px;
-      font-size: 0.92rem;
-      color: #4b5563;
-    }
-
-    .steps ol {
-      margin-left: 18px;
-      margin-top: 8px;
-    }
-
-    .steps li {
-      margin-bottom: 8px;
-    }
-
-    .steps ul {
-      margin-left: 22px;
-      margin-top: 4px;
-      list-style: disc;
-    }
-
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 10px;
-    }
-
-    .benefit {
-      background: #f9fafb;
-      border-radius: 10px;
-      padding: 12px 10px;
-      text-align: center;
-      border: 1px solid #e5e7eb;
-    }
-
-    .benefit h3 {
-      font-size: 0.95rem;
-      margin-bottom: 4px;
-      font-weight: 600;
-      color: #111827;
-    }
-
-    .benefit p {
-      font-size: 0.85rem;
-      color: #6b7280;
-      margin: 0;
-    }
-
-    .footer-links {
-      font-size: 0.84rem;
-      color: #6b7280;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .footer-links a {
-      color: #4b5563;
-    }
-
-    .footer-links a:hover {
-      text-decoration: underline;
-    }
-
-    .disclaimer {
-      font-size: 0.8rem;
-      color: #6b7280;
-      margin-top: 16px;
-      line-height: 1.5;
-    }
-
-    footer {
-      padding: 16px;
-      background: #111827;
-      color: #9ca3af;
-      font-size: 0.8rem;
-      text-align: center;
-    }
-
-    @media (max-width: 768px) {
-      main {
-        padding-top: 24px;
-      }
-
-      .card {
-        padding: 20px 16px;
-      }
-
-      .benefits-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+footer {
+    background: #198754;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+</style>
 </head>
+
 <body>
-  <div class="page">
-    <header>
-      <div class="header-inner">
-        <h1>Portal do Cliente Volkswagen</h1>
-      </div>
-    </header>
 
-    <main>
-      <div class="container">
+<header>
+    <h1>DROGARIA FARMACURA LTDA</h1>
+    <p>CNPJ: 38.260.165/0001-75</p>
+    <p>Saúde, Confiança e Transparência</p>
+</header>
 
-        <div class="card">
-          <h2>Portal do Cliente 🟢</h2>
-          <p>
-            Se você está procurando o mais completo acesso ao suporte online para resolver o que é necessário, você terá todo suporte aqui mesmo:
-            Na área do cliente, você tem acesso a todas as funcionalidades da sua conta, como 2 via de boleto, antecipação de parcelas, entre outras.
-          </p>
+<nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#como-funciona">Como Funciona</a>
+    <a href="#legal">Regulamentação</a>
+    <a href="#contato">Contato</a>
+</nav>
 
-          <!-- IMAGEM VOLKSWAGEN T-CROSS 2026 -->
-          <img 
-            src="tross2026.jpg" 
-            alt="Volkswagen T-Cross 2026" 
-            class="hero-image" 
-          />
+<section id="sobre">
+    <h2>Sobre a Empresa</h2>
+    <p>
+    A Drogaria Farmacura LTDA é uma empresa brasileira do segmento farmacêutico, 
+    especializada na comercialização de medicamentos, produtos de higiene, 
+    cuidados pessoais e itens voltados à saúde e bem-estar.
+    </p>
 
-          <div class="highlight">
-            <div class="whatsapp-box">
-              <strong>Atendimento via WhatsApp</strong>
-              <span>Serviço rápido, prático e seguro das 8h às 20h</span>
-              <span class="whatsapp-number">(11) 95818-9259</span>
-              <span class="small-note">Adicione aos seus contatos</span>
-            </div>
+    <p>
+    Atuamos com foco na transparência, segurança e qualidade no atendimento, 
+    garantindo que nossos clientes tenham acesso a produtos confiáveis e 
+    informações claras.
+    </p>
+</section>
 
-            <a
-              class="btn-whatsapp"
-              href="https://wa.me/5511958189259?text=Solicitar%20atendimento."
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              SOLICITAR VIA WHATSAPP<span>📲</span>
-            </a>
-          </div>
-        </div>
+<section id="produtos">
+    <h2>Produtos e Serviços</h2>
 
-        <div class="card">
-          <div class="section-title">Solicitações Disponíveis</div>
-          <div class="section-subtitle">
-            Clique no serviço desejado para mais informações
-          </div>
+    <ul>
+        <li>Medicamentos isentos de prescrição</li>
+        <li>Produtos de higiene pessoal</li>
+        <li>Itens de cuidados com a saúde</li>
+        <li>Cosméticos e bem-estar</li>
+    </ul>
 
-          <div class="services-grid">
-            <a class="service-btn" href="https://wa.me/5511958189259?text=Solicitar%20atendimento.">
-              2ª via de boletos
-            </a>
-            <a class="service-btn" href="https://wa.me/5511958189259?text=Solicitar%20atendimento.">
-              Quitar financiamento
-            </a>
-            <a class="service-btn" href="https://wa.me/5511958189259?text=Solicitar%20atendimento.">
-              Antecipar parcelas
-            </a>
-            <a class="service-btn" href="https://wa.me/5511958189259?text=Solicitar%20atendimento.">
-              Regularizar parcelas em atraso
-            </a>
-          </div>
-        </div>
+    <p>
+    A empresa realiza atendimento direto ao cliente, auxiliando na escolha de produtos 
+    conforme a necessidade, sempre respeitando as normas vigentes do setor.
+    </p>
+</section>
 
-        <div class="card">
-          <div class="section-title">Como solicitar pelo WhatsApp?</div>
+<section id="como-funciona">
+    <h2>Como Funciona</h2>
 
-          <div class="steps">
-            <ol>
-              <li>
-                <strong>Adicione nosso número</strong><br />
-                Adicione o número (11) 95818-9259 aos seus contatos e envie uma mensagem,
-                ou clique no botão acima.
-              </li>
-              <li>
-                <strong>Selecione a opção desejada:</strong>
-                <ul>
-                  <li><strong>1</strong> para 2ª via de boleto</li>
-                  <li><strong>2</strong> para Antecipação de parcelas</li>
-                  <li><strong>3</strong> para Regularizar parcelas em atraso</li>
-                  <li><strong>4</strong> para Quitação de contrato</li>
-                  <li><strong>5</strong> para Segunda via do Contrato</li> 
-                </ul>
-              </li>
-              <li>
-                <strong>Finalize o processo</strong><br />
-                Confirme as informações do seu cadastro e siga as orientações de nosso atendimento.
-              </li>
-            </ol>
-          </div>
-        </div>
+    <p>
+    Os clientes podem adquirir produtos diretamente na loja física ou, quando disponível, 
+    por meio de canais digitais de atendimento.
+    </p>
 
-        <div class="card">
-          <div class="section-title">Por que usar nosso WhatsApp?</div>
+    <p>
+    Todo o processo é conduzido pela própria empresa, sem intermediação de terceiros, 
+    garantindo controle total sobre atendimento, venda e entrega.
+    </p>
+</section>
 
-          <div class="benefits-grid">
-            <div class="benefit">
-              <h3>Rapidez</h3>
-              <p>Acesso imediato às informações sem filas</p>
-            </div>
-            <div class="benefit">
-              <h3>Praticidade</h3>
-              <p>Apenas com seu celular e alguns cliques</p>
-            </div>
-            <div class="benefit">
-              <h3>Segurança</h3>
-              <p>Canal seguro e verificado</p>
-            </div>
-          </div>
-        </div>
+<section id="legal">
+    <h2>Conformidade e Regulamentação</h2>
 
-        <div class="card">
-          <div class="footer-links">
-            <a href="#">Portal do Cliente</a>
-            <span>•</span>
-            <a href="#">Política de Privacidade</a>
-            <span>•</span>
-            <a href="#">Termos de Uso</a>
-            <span>•</span>
-            <a href="#">Sobre Nós</a>
-          </div>
-          <p class="disclaimer"></p>
-        </div>
+    <p>
+    A Drogaria Farmacura LTDA atua em conformidade com as normas legais aplicáveis ao 
+    setor farmacêutico, incluindo regulamentações sanitárias e exigências dos órgãos 
+    competentes, como a ANVISA.
+    </p>
 
-      </div>
-    </main>
+    <p>
+    A empresa segue rigorosamente as boas práticas de comercialização e armazenamento 
+    de produtos, garantindo segurança e qualidade ao consumidor.
+    </p>
+</section>
 
-    <footer>
-      © 2026 Portal do Cliente Volkswagen. Todos os direitos reservados.
-    </footer>
-  </div>
+<section>
+    <h2>Proteção de Dados</h2>
+
+    <p>
+    Respeitamos a privacidade dos nossos clientes e seguimos a Lei Geral de Proteção de Dados (LGPD), 
+    garantindo que todas as informações sejam tratadas com segurança e confidencialidade.
+    </p>
+</section>
+
+<section id="contato">
+    <h2>Contato</h2>
+
+    <p><strong>Email:</strong> contato@farmacura.com</p>
+    <p><strong>Telefone:</strong> (11) 0000-0000</p>
+
+    <p>
+    Estamos disponíveis para esclarecer dúvidas, prestar suporte e garantir um atendimento 
+    eficiente e transparente.
+    </p>
+</section>
+
+<section>
+    <h2>Transparência</h2>
+
+    <p>
+    Nosso compromisso é operar de forma ética, clara e em total conformidade com as políticas 
+    do Google Ads, garantindo uma experiência segura para todos os usuários.
+    </p>
+</section>
+
+<footer>
+    <p>© 2026 Drogaria Farmacura LTDA - Todos os direitos reservados</p>
+</footer>
+
 </body>
 </html>
